@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock title %}</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'scss/main.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/skin.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="{% static './script/index.js' %}"></script>
+</head>
+
+<body id="wrapper">
+
+
+
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+                        <a class="navbar-brand" href="#">
+                            <h1>JDPI</h1><span style="font-size:1.5rem;">Talabalar Akademiyasi</span></a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li ><a href="{% url 'home' %}">Bosh sahifa</a></li>
+<!--                            <li><a href="features.html">Features</a></li>-->
+                            <li><a href="{% url 'about' %}">Biz haqimizda</a></li>
+                            <li><a href="{% url 'news' %}">Yangiliklar</a></li>
+<!--                            <li><a href="faq.html">FAQ</a></li>-->
+                            <li><a href="{% url 'tanlovlar' %}">Tanlovlar</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'profile' %}"><span class="background-color:'blue'">{{user.username}}</span></a></li>
+                            <li><a href="{% url 'logout' %}"><span class="background-color:'blue'">LogOut</span></a></li>
+                            {% else %}
+                            <li><a href="{% url 'login' %}">kirish</a></li>
+                            <li><a href="{% url 'registration' %}">A'zo bo'lish</a></li>
+                            {% endif %}
+
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--/.nav-ends -->
+
+{% block content %} {% endblock %}
+
+  <section id="footer">
+      <div class="section-heading text-center">
+                <div class="col-md-12 col-xs-12">
+                    <h1> <span>Biz bilan Aloqa</span></h1>
+                </div>
+            </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3050.4699466681727!2d67.82423791475233!3d40.13181448084321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38b29426d5c89667%3A0xfb1eb71ddf62c359!2z0J_QtdC00LDQs9C-0LPQuNC60LAg0LjQvdGB0YLQuNGC0YPRgtC4!5e0!3m2!1suz!2s!4v1624969597547!5m2!1suz!2s" width=100% height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <h4>Manzil</h4>
+
+                        <hr/>
+                        <p>Jizzax davlat pedagogika instituti,
+                            <br>130100 Jizzax viloyati,
+                            <br>Jizzax shahri <br>
+                            Sh.Rashidov shox ko'chasi, 4 uy</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <h4>Biz bilan bog'lanish</h4>
+                        <hr/>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fa fa-facebook"></i> talabalar.akademiyasi</a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a> talabalar.akademiyasi</li>
+<!--                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a> talabalar.akademiyasi</li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a> talabalar.akademiyasi</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 block">
+                    <div class="footer-block">
+                        <h4>Yo'nalishlar</h4>
+                        <hr/>
+                        <ul class="footer-links">
+                            <li><a href="#">G'OYALAR GENERATORI</a></li>
+                            <li><a href="#">STARTAPLAR</a></li>
+                            <li><a href="#">BIZNES VAKILLARI</a></li>
+                            <li><a href="#">BO'LAJAK AKADEMIKLAR</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-12 <block></block>">
+                    <div class="footer-block">
+                        <h4>OXIRGI YANGILIKLAR</h4>
+                        <hr/>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
+                                <p class="post-date">May 25, 2021</p>
+                            </li>
+                            <li>
+                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
+                                <p class="post-date">May 25, 2021</p>
+                            </li>
+                            <li>
+                                <a href="#" class="post">Lorem ipsum dolor sit amet</a>
+                                <p class="post-date">May 25, 2021</p>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+     <section id="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-7 col-xs-7 top-header-links">
+                    <ul class="contact_links">
+                        <li><i class="fa fa-phone"></i><a href="#">+998 99 899 88 99</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="#">talabalarakademiyasi@mail.ru</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 social">
+                    <ul class="social_links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+    <div id="panel">
+        <div id="panel-admin">
+            <div class="panel-admin-box">
+                <div id="tootlbar_colors">
+                    <button class="color" style="background-color:#1abac8;" onclick="mytheme(0)"></button>
+                    <button class="color" style="background-color:#ff8a00;" onclick="mytheme(1)"> </button>
+                    <button class="color" style="background-color:#b4de50;" onclick="mytheme(2)"> </button>
+                    <button class="color" style="background-color:#e54e53;" onclick="mytheme(3)"> </button>
+                    <button class="color" style="background-color:#1abc9c;" onclick="mytheme(4)"> </button>
+                    <button class="color" style="background-color:#159eee;" onclick="mytheme(5)"> </button>
+                </div>
+            </div>
+
+        </div>
+        <a class="open" href="#"><span><i class="fa fa-gear fa-spin"></i></span></a>
+    </div>
+
+</body>
+</html>
