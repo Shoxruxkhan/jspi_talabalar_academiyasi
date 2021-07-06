@@ -251,19 +251,19 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="fakultetId">Fakultet</label>
-                                            <select class="form-control" id="fakultetId" value="" name='fakulty' onchange="myFunction()">
+                                            <select class="form-control" id="fakultetId" value="" name='fakulty'>
                                             {% for fakulty in fakultys %}
-                                                <option value={{fakulty.id}}>{{fakulty.name}}{{fakulty.id}}</option>
+                                                <option value={{fakulty.id}}>{{fakulty.name}}</option>
                                             {% endfor %}
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="yunalishId">Yunalishlar</label>
-                                            <select class="form-control" id="yunalishId" value="" name='yunalish'>
+                                            <select class="form-control" id="yunalishId" name='yunalish'>
 
                                             {% for yunalish in yunalishlar %}
-                                                    <option id="optiony" value="">{{yunalish.name}}</option>
+                                                    <option value="{{yunalish.id}}">{{yunalish.name}}</option>
 
                                             {% endfor %}
                                             </select>
@@ -284,13 +284,5 @@
                 <!-- /.container-fluid -->
 
             </div>
-                <script>
-                    function myFunction() {
-                      var x = document.getElementById("fakultetId").value;
-                       console.log(document.getElementById('optiony').value = x);
-                    }
-
-
-                </script>
             <!-- End of Main Content -->
 {% endblock content %}
